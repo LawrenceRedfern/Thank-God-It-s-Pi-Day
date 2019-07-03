@@ -12,7 +12,7 @@ class Communication:
 
     def find_serial_port():
         """
-        This function finds first available
+        This Method finds first available
         serial port for use and saves it into
         file port.text
         """
@@ -35,7 +35,7 @@ class Communication:
 
     def read_from_rs232(self, serial_port: str, address: str):
         """
-        Module reads data from rs232 port, address starts with ME,
+        Method reads data from rs232 port, address starts with ME,
         and a hex value is added. eg ME034 ~ ME0ff, it is then sent
         in an ASCII encode
 
@@ -57,7 +57,7 @@ class Communication:
 
     def write_to_rs232(self, serial_port, address: str, parameter: str):
         """
-        Module writes data from rs232 port, address starts with ME,
+        Method writes data from rs232 port, address starts with ME,
         and a hex value is added. eg ME034 ~ ME0ff, it is then sent
         in an ASCII encode, parameters range from 0000 ~ ffff and
         are also sent in ASCII encode.
@@ -113,40 +113,49 @@ class Application(Frame):
             else:
                 self.grid_columnconfigure(col, weight=0)
 
-        def ask_question():
-            """
-            Module pops up a small window checking that user does want to quit
-            """
-            if messagebox.askyesno('Question', 'Do you want to Quit?') == True:
-                sys.exit()
-
         def help():
 
             popup = Toplevel()
             popup.title("HELP?")
+            # Comment out the following line when using minsize, maxsize
             # popup.attributes('-fullscreen', True)  # Auto Full screen
-            popup.minsize(800, 480)
-            popup.maxsize(800, 480)
-            popup.grid_rowconfigure(4, weight=1)
+            popup.minsize(800, 480)  # uncomment if want to restrict size
+            popup.maxsize(800, 480)  # uncomment if want to restrict size
+            popup.grid_rowconfigure(2, weight=1)
             popup.grid_columnconfigure(1, weight=1)
 
-            about_message = "Make selection from Top 3 choices (WINDER,UNWINDER,BUFFER)"
+            message = "Make selection from Top 3 choices (WINDER,UNWINDER,BUFFER).\n"\
+                "Next follow allowable button option, they will highlight with white text\n"\
+                "and you will also see an arrow on the right side, as you move along through\n"\
+                "the selection process, you will see the very right purple label change and\n"\
+                "will show what you have selected. ensure you check this before selecting the \n"\
+                "read or writes buttons\n"\
+                "\n"\
+                "Read Button - read data from Socapel drive and save to file\n"\
+                "Write Button - read data from file and save to socapel drive"
 
-            msg = Message(popup, text=about_message,
-                          font=('Times', '16'), borderwidth=3, relief=RIDGE)
-            msg.grid(row=0, column=0, rowspan=3,
-                     columnspan=5, sticky=N + E + W + S)
+            canvas = Canvas(popup)
+            canvas.pack(fill="both", expand=True)
 
-            button = Button(popup, text="EXIT HELP",
-                            bg='green', command=popup.destroy)
-            button.grid(row=4, column=3, rowspan=1,
-                        columnspan=1, sticky=N + E + W + S)
+            frame = Frame(canvas)
+            label = Label(canvas, text=message, bg="gray",
+                          fg="black", font=('Times', '16', 'bold'),
+                          borderwidth=3, relief=RIDGE, justify=CENTER)
+            label.pack(fill="both", expand=True)
+
+            vas1 = Button(canvas, text='CLOSE', bg='green',
+                          font=('Times', '16', 'bold'), padx=0, pady=0,
+                          borderwidth=3, relief=RIDGE, activebackground='MediumPurple3',
+                          command=popup.destroy)
+            vas1.pack(fill="both", expand=True)
+
+            frame.pack()
 
             # Button Flow Control ..........
 
         def button_mode(selection, opt):
             """
-            Module takes input as selction and opt to determine which button
+            Method takes input as selction and opt to determine which button
             has been pressed.
 
             @param selection: choice of button group
@@ -268,9 +277,9 @@ class Application(Frame):
         self.help.grid(row=0, column=0, columnspan=1,
                        sticky=N + E + W + S)
 
-        self.heading = Label(self, text='SOCAPEL LOADER SOFTWARE by TGIPD',
-                             font=('Times', '18', 'bold'), padx=0, pady=0, width=1,
-                             bg='gray', fg='white', borderwidth=3, relief=RIDGE)
+        self.heading = Label(self, borderwidth=3, text='SOCAPEL LOADER by TGIPD',
+                             relief=RIDGE, font=('Times', '18', 'bold'), activebackground='white', bg='gray')
+
         self.heading.grid(row=0, column=1, rowspan=1,
                           columnspan=4, sticky=N + E + W + S)
 
