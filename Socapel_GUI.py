@@ -12,7 +12,7 @@ class Communication:
 
     def find_serial_port():
         """
-        This Method finds first available
+        This function finds first available
         serial port for use and saves it into
         file port.text
         """
@@ -35,7 +35,7 @@ class Communication:
 
     def read_from_rs232(self, serial_port: str, address: str):
         """
-        Method reads data from rs232 port, address starts with ME,
+        Module reads data from rs232 port, address starts with ME,
         and a hex value is added. eg ME034 ~ ME0ff, it is then sent
         in an ASCII encode
 
@@ -57,7 +57,7 @@ class Communication:
 
     def write_to_rs232(self, serial_port, address: str, parameter: str):
         """
-        Method writes data from rs232 port, address starts with ME,
+        Module writes data from rs232 port, address starts with ME,
         and a hex value is added. eg ME034 ~ ME0ff, it is then sent
         in an ASCII encode, parameters range from 0000 ~ ffff and
         are also sent in ASCII encode.
@@ -113,6 +113,13 @@ class Application(Frame):
             else:
                 self.grid_columnconfigure(col, weight=0)
 
+        def ask_question():
+            """
+            Module pops up a small window checking that user does want to quit
+            """
+            if messagebox.askyesno('Question', 'Do you want to Quit?') == True:
+                sys.exit()
+
         def help():
 
             popup = Toplevel()
@@ -155,7 +162,7 @@ class Application(Frame):
 
         def button_mode(selection, opt):
             """
-            Method takes input as selction and opt to determine which button
+            Module takes input as selction and opt to determine which button
             has been pressed.
 
             @param selection: choice of button group
@@ -277,9 +284,9 @@ class Application(Frame):
         self.help.grid(row=0, column=0, columnspan=1,
                        sticky=N + E + W + S)
 
-        self.heading = Label(self, borderwidth=3, text='SOCAPEL LOADER by TGIPD',
-                             relief=RIDGE, font=('Times', '18', 'bold'), activebackground='white', bg='gray')
-
+        self.heading = Label(self, text='SOCAPEL LOADER SOFTWARE by TGIPD',
+                             font=('Times', '18', 'bold'), padx=0, pady=0, width=1,
+                             bg='gray', fg='white', borderwidth=3, relief=RIDGE)
         self.heading.grid(row=0, column=1, rowspan=1,
                           columnspan=4, sticky=N + E + W + S)
 
