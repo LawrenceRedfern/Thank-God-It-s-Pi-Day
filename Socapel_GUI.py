@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
+"""
+Please Install pyserial
+
+from Termainal/Command Prompt type:
+pip install pyserial
+"""
+
 
 from tkinter import *
 from tkinter import messagebox
