@@ -1,6 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
+"""
+Please Install pyserial
+
+from Termainal/Command Prompt type:
+pip install pyserial
+"""
+
 
 from tkinter import *
 from tkinter import messagebox
@@ -124,23 +131,39 @@ class Application(Frame):
 
             popup = Toplevel()
             popup.title("HELP?")
+            # Comment out the following line when using minsize, maxsize
             # popup.attributes('-fullscreen', True)  # Auto Full screen
-            popup.minsize(800, 480)
-            popup.maxsize(800, 480)
-            popup.grid_rowconfigure(4, weight=1)
+            popup.minsize(800, 480)  # uncomment if want to restrict size
+            popup.maxsize(800, 480)  # uncomment if want to restrict size
+            popup.grid_rowconfigure(2, weight=1)
             popup.grid_columnconfigure(1, weight=1)
 
-            about_message = "Make selection from Top 3 choices (WINDER,UNWINDER,BUFFER)"
+            message = "Make selection from Top 3 choices (WINDER,UNWINDER,BUFFER).\n"\
+                "Next follow allowable button option, they will highlight with white text\n"\
+                "and you will also see an arrow on the right side, as you move along through\n"\
+                "the selection process, you will see the very right purple label change and\n"\
+                "will show what you have selected. ensure you check this before selecting the \n"\
+                "read or writes buttons\n"\
+                "\n"\
+                "Read Button - read data from Socapel drive and save to file\n"\
+                "Write Button - read data from file and save to socapel drive"
 
-            msg = Message(popup, text=about_message,
-                          font=('Times', '16'), borderwidth=3, relief=RIDGE)
-            msg.grid(row=0, column=0, rowspan=3,
-                     columnspan=5, sticky=N + E + W + S)
+            canvas = Canvas(popup)
+            canvas.pack(fill="both", expand=True)
 
-            button = Button(popup, text="EXIT HELP",
-                            bg='green', command=popup.destroy)
-            button.grid(row=4, column=3, rowspan=1,
-                        columnspan=1, sticky=N + E + W + S)
+            frame = Frame(canvas)
+            label = Label(canvas, text=message, bg="gray",
+                          fg="black", font=('Times', '16', 'bold'),
+                          borderwidth=3, relief=RIDGE, justify=CENTER)
+            label.pack(fill="both", expand=True)
+
+            vas1 = Button(canvas, text='CLOSE', bg='green',
+                          font=('Times', '16', 'bold'), padx=0, pady=0,
+                          borderwidth=3, relief=RIDGE, activebackground='MediumPurple3',
+                          command=popup.destroy)
+            vas1.pack(fill="both", expand=True)
+
+            frame.pack()
 
             # Button Flow Control ..........
 
