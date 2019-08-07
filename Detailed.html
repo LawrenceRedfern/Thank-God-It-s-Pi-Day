@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>TGIPD's Detailed Description</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body class="is-preload">
+	<div id="page-wrapper">
+
+		<!-- Header -->
+		<div id="header">
+
+			<!-- Logo -->
+			<header>
+				<h1><a href="index.html" id="logo">
+						<pre><i class="fab fa-raspberry-pi"></i><em>   |          TGIPD           |   </em><i class="fab fa-raspberry-pi"></i>
+<em>( Thank God Its Pi Day )</em></pre></a><h1>
+			</header>
+			<!-- Nav -->
+			<nav id="nav">
+				<ul>
+					<li class="current"><a href="index.html">Home</a></li>
+					<li>
+						<a href="#">Everyone's Websites</a>
+						<ul>
+							<li><a href="https://lawrenceredfern.github.io/Lawrence-Redfern/" target="_blank">Lawrence's Website</a></li>
+							<li><a href="https://liamcw.github.io/LiamChanWicht-sProfile/" target="_blank">Liam's Website</a></li>
+							<li><a href="https://dpipi.github.io/COSC2196_Assessment_1/" target="_blank">David's Website</a></li>
+							<li><a href="https://johnathonjtassoni.github.io" target="_blank">Johnathon's Website</a></li>
+							<li><a href="https://jrspecs.github.io/myProfile/" target="_blank">Josh's Website</a></li>
+							<li><a href="https://mittle94.github.io/Uni-Work/" target="_blank">Mitch's Website</a></li>
+					</li>
+				</ul>
+
+				<li><a href="Team.html">Meet The Team</a></li>
+				<li><a href="Group.html">Group Test Results</a></li>
+				<li><a href="Jobs.html">Our Ideal Jobs</a></li>
+				<li class="current"><a href="Detailed.html">A Detailed Description Of Our Project</a></li>
+				<li><a href="Presentation.html">Group Presentation</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<!-- Banner -->
+		<section id="banner">
+		</section>
+
+		<!-- Highlights -->
+		<section class="wrapper style1">
+			<div class="container">
+				<h2>A Detailed Description Of Our Project</h2>
+			</br>
+				<h2>The Aim Of Our Project</h2>
+				<p>The main aim of our project is to cut back on the time it takes to change the servo motors at News Limited Australia so that more work can be completed in half the time. We would achieve this goal by completing the following goals beforehand.</p>
+				<h3>Create a raspberry pi that would read and write to a serial port</h3>
+				<p>We would start by creating the user GUI and to do that we would need to test multiple drafts and find what GUI layout is the easiest and fastest to work with as this project is to make changing the servo motors fast and easy so a sluggish confusing GUI would not be helpful in achieving the final goal. We would then move onto getting the raspberry pi to communicate in serial and attach a RS232 port to the raspberry pi as that is the port used at News Limited Australia currently and would be the easiest and cheapest way to make the change to a faster system. Python will be our language of choice as members in our group have experience with Python and it seems to be the best choice logically for the task.</p>
+				<h3>Bug testing and load testing</h3>
+				<p>With any program that has a important role it is necessary to bug test the software and iron out all issues before finishing the project as in a important role one mistake could cost millions of dollars in repairs and data recovery. Load testing would be done to make sure the raspberry pi will always be able to function fast and not slow down or close the program at anytime during use no matter how many task’s it has been given at that point in time. We would bug test the program by using it non-stop for hours at a time (Either by a human or a separate program) and have a log of all commands processed so we can see where all errors occurred and fix the cause of those said issues. Load testing would be done by forcing the program to work hard and run as many commands as possible through the program at one time we would then take the number of commands that began to cause issues and limit to program to running 10% less commands for safety.</p>
+				<h3>Building a strong and sturdy case for the Raspberry Pi and Touchscreen to sit in</h3>
+				<p>In a workplace it is unavoidable that the device will be dropped, knocked and treated in a rough manner with the possibility of having liquids spilt on the device. If we do not address this fact before releasing the device to the public, it could cause the device to break early and could cost a large amount of money. We would complete this task by 3D printing a model of the device and building a strong case with rubber and other materials that are great at absorbing impact while also sealing the entire device in the case so no liquid can get inside the case. A great example of ways to do this would be looking at old iPhone Otter Box cases as they were waterproof and drop proof so we could take notes from their design and apply it to our own case.</p>
+			</br>
+				<h2>Plans and Progress</h2>
+				<p>The Socapel servo motor drive data reader/loader began through the frustrations of the maintenance team at newscorp Australia, the team were not only becoming frustrated with unreliable equipment that would lose power and drop out half way through the programming procedure, they were also getting frustrated by the time it was taking to program the socapel servo motor drive.
+					The original programming procedure used a very basic manual entry keyboard that you would have to enter commands one at a time, check the data value, correct it if needed then progress to the next until all 255 parameters were correct or corrected.</p>
+				<h4>Example</h4>
+				<li>1. Check equipment label</li>
+				<li>2. Find reference page in book</li>
+				<li>3. Enter first parameter – ME034</li>
+				<li>4. Press ENTER</li>
+				<li>5. Check data value and reference to book</li>
+				<li>IF DATA IS CORRECT</li>
+				<li>6. Type I then ENTER to increment to next parameter</li>
+				<li>IF DATA IS INCORRECT</li>
+				<li>6. Type n followed by correct value (ie n0000) then press ENTER</li>
+				<li>7. Type I then ENTER to increment to next parameter</li>
+				<li>Continue this cycle to all parameters are checked and corrected</li>
+			</br>
+				<p>If all parameters are correct enter S then ENTER to save all data to socapel drive</p>
+				<p>The first advancement was to use a laptop, testing was done through the program terminal, this terminal program was a slight improvement over the manual keyboard as it would not drop out as did the original programming keyboard. The one draw back was that anytime you needed to change a data value you would have to edit the text file.</p>
+				<p>The second idea was to develop software on a laptop based on the python3 programming language, the python3 programming language had the required GUI module tkinter that was built in, we then looked for communication modules that could be added to the python programming language that would assist with the ASCII RS232 communications, we done our research and come across an addon module called pyserial, pyserial had a free software license that would allow us to use it and was designed for ASCII communications. Some work and investigation had been done around this idea, the one wall that kept coming up was being able to leave the laptop in the required area and having it secure, this raised concerns and was a major problem, so the group put their heads together to come up with a better solution.</p>
+				<p>The third idea was to develop something much more portable, smaller than a laptop, simple to use, rechargeable and could be left in the area that required it, would not be needed else ware and the security concerns of a laptop would not be an issue. The team come up with a raspberry pi based data loader, it could still run the python software, it could have a seven inch touch screen, add a portable rechargeable power supply, and would be very portable while removing the risks of a laptop.</p>
+				<p>Currently the team is in between the second and third idea, there was some work completed on the laptop idea and a basic GUI was being developed, the team is still looking at improving the GUI and giving it a more pleasurable appearance , with the team moving to the idea of a raspberry pi based module it brings changes, the team must now work on and investigate the differences in programming for the rs232 serial communications, and also the file transfer procedures for storage of the programming files. The team is also looking at the best products and solution based around a rechargeable power supply that is small, long lasting and portable enough to ensure that the raspberry pi will continue to have power for as long as possible, so it requires minimal charge.</p>
+				<p>The team has also discussed its next advancement after the raspberry pi unit is complete, and would like to possibly develop an android and iPhone app. this would require the team learning these same steps such as GUI development, serial communications and file manipulation based on the java and swift programming languages.</p>
+			</br>
+				<h2>Roles</h2>
+				<li>David Pipczak - Project manager / Tester</li>
+				<li>Liam Chan-Wicht - Graphics Designer / GUI developer</li>
+				<li>Mitchell Lee - Hardware Specialist</li>
+				<li>Johnathon Tassoni – Lead Software Developer</li>
+				<li>Lawrence Redfern – Software Developer</li>
+			</br>
+				<h2>Scope and Limits</h2>
+				<h3>Project needs:</h3>
+				<p>The needs for the project are skills in python3 software development and raspberry pi programming specifically around rs232 communications.</p>
+				<h3>Project Objectives:</h3>
+				<p>The team would like learn the basics of the python3 programming language well enough to achieve the development of a well thought out useable graphics user interface using the tkinter module, the team would also like to work out how to correctly communicate with the socapel servo motor drive in its simplest form using a laptop before proceeding to the development of communication techniques of a raspberry pi. This will allow the team to get experience with the pyserial module without having to convert it to raspberry pi IO commands.</p>
+				<p>Through these project objectives the team will be able to get feedback both visually through the testing and development of the graphics user interface as well as confirming that the communication techniques are working correctly with the socapel servo motor drive before proceeding to later stages in development of the project as a whole. These steps would give us realistic objectives, would allow us to deliver these processes on time and would be realistic.</p>
+				<p>As a time frame the team expects to have the required python3 and pyserial skills within 4 weeks, this would allow the team 6 weeks to fully develop and test all aspects around the graphics user interface as well as the communication techniques for communication with the socapel servo motor drive.</p>
+				<h3>Project Scope Description:</h3>
+				<p>The aim of the project is to provide a raspberry pi based portable data loader for socapel servo motor drives that will provide fast easy reliable programming and reduce the down time of the electrical maintenance team.</p>
+				<p>By reducing the time taken by the electrical maintenance team when programming the socapel servo motor drive, this will allow the team to allocate their time and resources in more important areas of maintenance.
+					The team indents to create a well-thought-out user-friendly graphics user interface, reliable serial communications, design it without the need for propriety software and without the need for continues software updates.</p>
+				<h4>The raspberry pi-based servo motor drive programmer will include:</h4>
+				<li>1. User friendly graphics user interface</li>
+				<li>2. RS232 ASCII data reading & writing</li>
+				<li>3. Drive parameter storage</li>
+				<li>4. Portability</li>
+				<h3>Expectations and acceptance:</h3>
+				<p>The team expectations for the project are based on the portability and current visual layout and positioning of the socapel servo motor drives. The team hopes that this will give greater acceptance from the team that will be using the product, make it simpler and easy part replacement as the parts are readily available and this will reduce the costs for the management team. We will be advising and working with the maintenance and management team to ensure that all areas are well tested, feedback is taken so any alterations can be achieved without to much effect and the product can be delivered on time.</p>
+				<h3>Constraints:</h3>
+				<p>The team constraints will be around the ability to learn enough python3 programming language, tkinter module and the pyserial module in 4 weeks, the constraints will also be around sight access for testing as it is usually tested within working hours. Another constraint that is a possibility is the time taken for parts orders around the raspberry pi and these will need to be ordered in advance to ensure that parts arrive before or on time.</p>
+				<h3>Changes:</h3>
+				<p>The team will need to deal with changes along the line, the team hopes to be able to minimise the impact of these by developing the software in a more structured way. The team will need to ensure that each part of the software be development as its own unique module, this will allow only one part of the software to be modified, leaving the others untouched, this will be achieved by tying them all together in a main program.</p>
+			</br>
+				<h2>Tools and Technologies</h2>
+				<h3>Software requirements</h3>
+				<p>The raspberry pi socapel servo motor drive programmer will be programmed using the python3.7 programming language, this will need to be downloaded and installed on both the local computer used for programming and also on the raspberry pi IOT device to enable the python file to be able to run, the python module tkinter will be used for the development of the graphics user interface which is a python built in module so it will only need to be imported at the start of the file. The pyserial 3.4 extension module is not a built-in file and will need to be installed in the python software by use of an executable program or can be installed through pythons build in module pip, this can be done through a terminal window. i.e. pip install pyserial. The pyserial software is released under the free software license. Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+				<li>Re-distributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.</li>
+				<li>Re-distributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution</li>
+				<li>Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
+				<h3>Hardware requirements</h3>
+				<p>Hardware requirements for the project are a Raspberry pi 3 Model B single board computer, the project will require an addon rs232 serial adaptor, a Raspberry Pi 7-inch touchscreen which has a resolution of 800 x 400 pixels, a design spark 7-inch touchscreen case radio parts part number (117-6719) and a Raspberry Pi Universal Power Supply and rechargeable battery supply once made portable. The device will also be supplied with a standard one meter long serial cable. and will require a SanDisk 32 gigabyte SD card.</p>
+			</br>
+				<h2>Testing</h2>
+				<p>Testing will be completed live on the job by David Pipczak who works for Newscorp Australia, has access to the equipment and is able to live test. David will present the GUI layout with those involved on the front line of maintenance, demonstrate its use and take on feedback and any concerns which can be adjusted to suit their needs, David will also test the rs232 data communications in a test lab to ensure data is being transferred correctly and it is saved to the drive unit and is maintained after a loss of power. The GUI will be tested on ten maintenance electricians at Newscorp Melbourne, and upon completion the unit will be put into production and monitored before sending the device Australia wide.</p>
+			</br>
+				<h2>TimeFrame</h2>
+				<h3>Week 01:</h3>
+				<p>Researching socapel servo motors and research the current standard for ports to be certified as RS232 compatible and how that would affect our project over the coming weeks. Research serial communication and how Python can use serial communication.</p>
+				<h3>Week 02 - 04:</h3>
+				<p>The team to learn the basics of the python3 programming language well enough to achieve the development of a well thought out useable graphics user interface using the tkinter module. </p>
+				<h3>Week 05:</h3>
+				<p>Team to research and develop required knowledge and skills with the python3 pyserial module including reading and understanding the full pyserial documentation and its abilities</p>
+				<h3>Week 06:</h3>
+				<p>Start to design a user-friendly GUI and start designing the workflow that would be followed while using the device. Look at the current technology used for changing the servo motors. Brainstorm on a case idea to be looked at in the coming weeks.</p>
+				<h3>Week 07:</h3>
+				<p>Start building the physical device by connecting the 7” screen to the Raspberry Pi and the RS232 Port for an understanding of what the device will look like finished so that the case can be built appropriately.</p>
+				<h3>Week 08:</h3>
+				<p>Start coding the graphics user interface, pyserial communications and the file storage functions into a python program, correct any bugs that might arise and do simulated testing. </p>
+				<h3>Week 09:</h3>
+				<p>Install the software onto the raspberry pi to ensure there is no software compatibility issues and that the GUI is auto sizing function is working correctly for Fullscreen operation.</p>
+				<h3>Week 10:</h3>
+				<p>Start testing raspberry pi device connected correctly to socapel servo motor drive in a lab environment and bug test any issues. </p>
+				<h3>Week 11:</h3>
+				<p>Start testing in live operation and on socapel servo motor drives on site at newscorp Australia to ensure communication works well and as it should.</p>
+				<h3>Week 12:</h3>
+				<p>Hand device over to newscorp Australia and provide training for employees in the correct operation of the raspberry pi socapel servo motor device. </p>
+				<h3>Week 13:</h3>
+				<p>Contact newscorp and meet to discuss any issues and any alterations that might be required to ensure customer is completely happy with the product and that the direct team using it have not had any issues</p>
+				<h3>Week 14:</h3>
+				<p>Meet with Software developers to communicate required modifications and issues if they have arisen, Software development team to correct them, and report back after completion  </p>
+				<h3>Week 15:</h3>
+				<p>Update newscorp device if required</p>
+
+
+			</br>
+				<h2>Risk's</h2>
+				<h3>Software risks:</h3>
+				<p>Software risks for the project of the socapel servo motor drive will be around the pyserial module. Even though the pyserial module claims to be able to include all functions, this must be tested to see its strengths and weaknesses.</p>
+				<p>This could create extra work for the team and extra programming might be required to overcome any issues, this could cause time delays as the team works through them. The pyserial module will need to be tested for compatibility with the raspberry pi GPIO system.</p>
+				<h3>Hardware risks:</h3>
+				<p>Hardware risks for the project will be based around two areas, one being the power of the rs232 serial port to ensure that it is compatible and has the required voltage level for compatibility between itself and the input of the socapel drive.</p>
+				<p>The second hardware risk for the project will be based around battery life, without the correct battery, and battery life, the project might run out of power earlier than expected, the lack of power could cause potential issues at the serial port signal level and this would cause the project to become unreliable.</p>
+
+
+			</br>
+				<h2>Group Processes and Communication</h2>
+				<p>Communication is the key to the success of any project. Our group quickly established a discord server for easy and consistent communication, and we also setup a Trello board for the sharing and exchanging of work files (pdfs, images, etc). As the group is unable to meet face-to-face, we’re very fortunate to have these technologies at our disposal, as they’re very robust, easy-to-use and free. They have allowed the members of TGIP to have an easy and flexible schedule for meetings, which have occurred at least once a week as a group conferencing session, although most members of the group have chatted on a daily basis. The TGIP team had established that we needed to increase the communication of the group after the first assignment.</p>
+				<p>The group did unfortunately have an absent member for the second assignment. Every effort was made to maintain and re-establish a connection with that member, including discord messages and messages through the RMIT group chat on Canvas. The group attempted to be as lenient and fair as possible, and allowed the member a very generous amount of time to participate or at the very least, re-establish contact. Unfortunately the member did not wish to work with the group and therefore was removed.</p>
+			</br>
+
+
+				</div>
+		</section>
+
+		<!-- CTA -->
+		<section id="cta" class="wrapper style3">
+			<div class="container">
+				<header>
+					<a href="#" class="button"></a>
+				</header>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<div id="footer">
+			<div class="container">
+				<div class="row">
+				</div>
+			</div>
+
+			<!-- Copyright -->
+			<div class="copyright">
+				<ul class="menu">
+					<li>Website creation and design by Lawrence Redfern and Liam Chan-Wicht</li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.dropotron.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
